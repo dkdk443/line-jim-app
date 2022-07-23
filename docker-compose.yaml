@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  liff-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./liffApp:/var/www/html/liffApp # ローカルをコンテナ内にマウント
+    command: sh -c "cd liffApp && npm run dev"
+    ports:
+      - "5173:5173"
+    stdin_open: true 
